@@ -3,22 +3,20 @@
 // SFML - Simple and Fast Multimedia Library
 // Copyright (C) 2007-2018 Laurent Gomila (laurent@sfml-dev.org)
 //
-// This software is provided 'as-is', without any express or implied warranty.
-// In no event will the authors be held liable for any damages arising from the use of this software.
+// Данное программное обеспечение предоставляется "как есть", без каких-либо гарантий.
+// Авторы не несут ответственности за любые убытки, вызванные использованием этого ПО.
 //
-// Permission is granted to anyone to use this software for any purpose,
-// including commercial applications, and to alter it and redistribute it freely,
-// subject to the following restrictions:
+// Разрешается использовать это ПО для любых целей, включая коммерческие приложения,
+// а также модифицировать и свободно распространять при соблюдении следующих условий:
 //
-// 1. The origin of this software must not be misrepresented;
-//    you must not claim that you wrote the original software.
-//    If you use this software in a product, an acknowledgment
-//    in the product documentation would be appreciated but is not required.
+// 1. Нельзя выдавать себя за автора оригинального ПО;
+//    запрещено утверждать, что вы написали оригинальное ПО.
+//    При использовании в продукте, указание авторства приветствуется, но не обязательно.
 //
-// 2. Altered source versions must be plainly marked as such,
-//    and must not be misrepresented as being the original software.
+// 2. Измененные версии должны быть явно обозначены как таковые
+//    и не должны выдаваться за оригинальное ПО.
 //
-// 3. This notice may not be removed or altered from any source distribution.
+// 3. Данное уведомление не может быть удалено или изменено.
 //
 ////////////////////////////////////////////////////////////
 
@@ -26,19 +24,18 @@
 #define SFML_DRAWABLE_HPP
 
 ////////////////////////////////////////////////////////////
-// Headers
+// Заголовочные файлы
 ////////////////////////////////////////////////////////////
 #include <SFML/Graphics/Export.hpp>
 #include <SFML/Graphics/RenderStates.hpp>
-
 
 namespace sf
 {
 class RenderTarget;
 
 ////////////////////////////////////////////////////////////
-/// \brief Abstract base class for objects that can be drawn
-///        to a render target
+/// \brief Абстрактный базовый класс для объектов, которые можно
+///        отрисовывать на цели рендеринга
 ///
 ////////////////////////////////////////////////////////////
 class SFML_GRAPHICS_API Drawable
@@ -46,7 +43,7 @@ class SFML_GRAPHICS_API Drawable
 public:
 
     ////////////////////////////////////////////////////////////
-    /// \brief Virtual destructor
+    /// \brief Виртуальный деструктор
     ///
     ////////////////////////////////////////////////////////////
     virtual ~Drawable() {}
@@ -56,14 +53,13 @@ protected:
     friend class RenderTarget;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Draw the object to a render target
+    /// \brief Отрисовка объекта на цели рендеринга
     ///
-    /// This is a pure virtual function that has to be implemented
-    /// by the derived class to define how the drawable should be
-    /// drawn.
+    /// Это чисто виртуальная функция, которая должна быть реализована
+    /// в производном классе для определения способа отрисовки объекта.
     ///
-    /// \param target Render target to draw to
-    /// \param states Current render states
+    /// \param target Цель рендеринга для отрисовки
+    /// \param states Текущие состояния рендеринга
     ///
     ////////////////////////////////////////////////////////////
     virtual void draw(RenderTarget& target, RenderStates states) const = 0;
@@ -71,26 +67,24 @@ protected:
 
 } // namespace sf
 
-
 #endif // SFML_DRAWABLE_HPP
-
 
 ////////////////////////////////////////////////////////////
 /// \class sf::Drawable
 /// \ingroup graphics
 ///
-/// sf::Drawable is a very simple base class that allows objects
-/// of derived classes to be drawn to a sf::RenderTarget.
+/// sf::Drawable - это очень простой базовый класс, который позволяет
+/// объектам производных классов отрисовываться на sf::RenderTarget.
 ///
-/// All you have to do in your derived class is to override the
-/// draw virtual function.
+/// Все, что нужно сделать в производном классе - переопределить
+/// виртуальную функцию draw.
 ///
-/// Note that inheriting from sf::Drawable is not mandatory,
-/// but it allows this nice syntax "window.draw(object)" rather
-/// than "object.draw(window)", which is more consistent with other
-/// SFML classes.
+/// Обратите внимание, что наследование от sf::Drawable не является
+/// обязательным, но оно позволяет использовать удобный синтаксис
+/// "window.draw(object)" вместо "object.draw(window)", что более
+/// согласовано с другими классами SFML.
 ///
-/// Example:
+/// Пример:
 /// \code
 /// class MyDrawable : public sf::Drawable
 /// {
@@ -102,14 +96,14 @@ protected:
 ///
 ///     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const
 ///     {
-///         // You can draw other high-level objects
+///         // Можно отрисовывать другие высокоуровневые объекты
 ///         target.draw(m_sprite, states);
 ///
-///         // ... or use the low-level API
+///         // ... или использовать низкоуровневый API
 ///         states.texture = &m_texture;
 ///         target.draw(m_vertices, states);
 ///
-///         // ... or draw with OpenGL directly
+///         // ... или рисовать напрямую через OpenGL
 ///         glBegin(GL_QUADS);
 ///         ...
 ///         glEnd();
