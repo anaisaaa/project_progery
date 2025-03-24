@@ -3,22 +3,20 @@
 // SFML - Simple and Fast Multimedia Library
 // Copyright (C) 2007-2018 Laurent Gomila (laurent@sfml-dev.org)
 //
-// This software is provided 'as-is', without any express or implied warranty.
-// In no event will the authors be held liable for any damages arising from the use of this software.
+// Данное программное обеспечение предоставляется "как есть", без каких-либо гарантий.
+// Авторы не несут ответственности за любые убытки, вызванные использованием этого ПО.
 //
-// Permission is granted to anyone to use this software for any purpose,
-// including commercial applications, and to alter it and redistribute it freely,
-// subject to the following restrictions:
+// Разрешается использовать это ПО для любых целей, включая коммерческие приложения,
+// а также модифицировать и свободно распространять при соблюдении следующих условий:
 //
-// 1. The origin of this software must not be misrepresented;
-//    you must not claim that you wrote the original software.
-//    If you use this software in a product, an acknowledgment
-//    in the product documentation would be appreciated but is not required.
+// 1. Нельзя выдавать себя за автора оригинального ПО;
+//    запрещено утверждать, что вы написали оригинальное ПО.
+//    При использовании в продукте, указание авторства приветствуется, но не обязательно.
 //
-// 2. Altered source versions must be plainly marked as such,
-//    and must not be misrepresented as being the original software.
+// 2. Измененные версии должны быть явно обозначены как таковые
+//    и не должны выдаваться за оригинальное ПО.
 //
-// 3. This notice may not be removed or altered from any source distribution.
+// 3. Данное уведомление не может быть удалено или изменено.
 //
 ////////////////////////////////////////////////////////////
 
@@ -26,15 +24,14 @@
 #define SFML_COLOR_HPP
 
 ////////////////////////////////////////////////////////////
-// Headers
+// Заголовочные файлы
 ////////////////////////////////////////////////////////////
 #include <SFML/Graphics/Export.hpp>
-
 
 namespace sf
 {
 ////////////////////////////////////////////////////////////
-/// \brief Utility class for manipulating RGBA colors
+/// \brief Вспомогательный класс для работы с RGBA-цветами
 ///
 ////////////////////////////////////////////////////////////
 class SFML_GRAPHICS_API Color
@@ -42,221 +39,215 @@ class SFML_GRAPHICS_API Color
 public:
 
     ////////////////////////////////////////////////////////////
-    /// \brief Default constructor
+    /// \brief Конструктор по умолчанию
     ///
-    /// Constructs an opaque black color. It is equivalent to
+    /// Создает непрозрачный черный цвет. Эквивалентно
     /// sf::Color(0, 0, 0, 255).
     ///
     ////////////////////////////////////////////////////////////
     Color();
 
     ////////////////////////////////////////////////////////////
-    /// \brief Construct the color from its 4 RGBA components
+    /// \brief Конструктор из компонентов RGBA
     ///
-    /// \param red   Red component (in the range [0, 255])
-    /// \param green Green component (in the range [0, 255])
-    /// \param blue  Blue component (in the range [0, 255])
-    /// \param alpha Alpha (opacity) component (in the range [0, 255])
+    /// \param red   Красная компонента (диапазон [0, 255])
+    /// \param green Зеленая компонента (диапазон [0, 255])
+    /// \param blue  Синяя компонента (диапазон [0, 255])
+    /// \param alpha Альфа-канал (прозрачность) (диапазон [0, 255])
     ///
     ////////////////////////////////////////////////////////////
     Color(Uint8 red, Uint8 green, Uint8 blue, Uint8 alpha = 255);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Construct the color from 32-bit unsigned integer
+    /// \brief Конструктор из 32-битного беззнакового целого
     ///
-    /// \param color Number containing the RGBA components (in that order)
+    /// \param color Число, содержащее компоненты RGBA (в таком порядке)
     ///
     ////////////////////////////////////////////////////////////
     explicit Color(Uint32 color);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Retrieve the color as a 32-bit unsigned integer
+    /// \brief Преобразование цвета в 32-битное беззнаковое целое
     ///
-    /// \return Color represented as a 32-bit unsigned integer
+    /// \return Цвет в виде 32-битного беззнакового целого
     ///
     ////////////////////////////////////////////////////////////
     Uint32 toInteger() const;
 
     ////////////////////////////////////////////////////////////
-    // Static member data
+    // Статические члены данных
     ////////////////////////////////////////////////////////////
-    static const Color Black;       ///< Black predefined color
-    static const Color White;       ///< White predefined color
-    static const Color Red;         ///< Red predefined color
-    static const Color Green;       ///< Green predefined color
-    static const Color Blue;        ///< Blue predefined color
-    static const Color Yellow;      ///< Yellow predefined color
-    static const Color Magenta;     ///< Magenta predefined color
-    static const Color Cyan;        ///< Cyan predefined color
-    static const Color Transparent; ///< Transparent (black) predefined color
+    static const Color Black;       ///< Предопределенный черный цвет
+    static const Color White;       ///< Предопределенный белый цвет
+    static const Color Red;         ///< Предопределенный красный цвет
+    static const Color Green;       ///< Предопределенный зеленый цвет
+    static const Color Blue;        ///< Предопределенный синий цвет
+    static const Color Yellow;      ///< Предопределенный желтый цвет
+    static const Color Magenta;     ///< Предопределенный пурпурный цвет
+    static const Color Cyan;        ///< Предопределенный голубой цвет
+    static const Color Transparent; ///< Предопределенный прозрачный цвет
 
     ////////////////////////////////////////////////////////////
-    // Member data
+    // Члены данных
     ////////////////////////////////////////////////////////////
-    Uint8 r; ///< Red component
-    Uint8 g; ///< Green component
-    Uint8 b; ///< Blue component
-    Uint8 a; ///< Alpha (opacity) component
+    Uint8 r; ///< Красная компонента
+    Uint8 g; ///< Зеленая компонента
+    Uint8 b; ///< Синяя компонента
+    Uint8 a; ///< Альфа-канал (прозрачность)
 };
 
 ////////////////////////////////////////////////////////////
 /// \relates Color
-/// \brief Overload of the == operator
+/// \brief Перегрузка оператора ==
 ///
-/// This operator compares two colors and check if they are equal.
+/// Сравнивает два цвета на равенство.
 ///
-/// \param left  Left operand
-/// \param right Right operand
+/// \param left  Левый операнд
+/// \param right Правый операнд
 ///
-/// \return True if colors are equal, false if they are different
+/// \return True, если цвета равны, false если различны
 ///
 ////////////////////////////////////////////////////////////
 SFML_GRAPHICS_API bool operator ==(const Color& left, const Color& right);
 
 ////////////////////////////////////////////////////////////
 /// \relates Color
-/// \brief Overload of the != operator
+/// \brief Перегрузка оператора !=
 ///
-/// This operator compares two colors and check if they are different.
+/// Сравнивает два цвета на неравенство.
 ///
-/// \param left  Left operand
-/// \param right Right operand
+/// \param left  Левый операнд
+/// \param right Правый операнд
 ///
-/// \return True if colors are different, false if they are equal
+/// \return True, если цвета различны, false если равны
 ///
 ////////////////////////////////////////////////////////////
 SFML_GRAPHICS_API bool operator !=(const Color& left, const Color& right);
 
 ////////////////////////////////////////////////////////////
 /// \relates Color
-/// \brief Overload of the binary + operator
+/// \brief Перегрузка бинарного оператора +
 ///
-/// This operator returns the component-wise sum of two colors.
-/// Components that exceed 255 are clamped to 255.
+/// Возвращает покомпонентную сумму двух цветов.
+/// Компоненты, превышающие 255, ограничиваются до 255.
 ///
-/// \param left  Left operand
-/// \param right Right operand
+/// \param left  Левый операнд
+/// \param right Правый операнд
 ///
-/// \return Result of \a left + \a right
+/// \return Результат \a left + \a right
 ///
 ////////////////////////////////////////////////////////////
 SFML_GRAPHICS_API Color operator +(const Color& left, const Color& right);
 
 ////////////////////////////////////////////////////////////
 /// \relates Color
-/// \brief Overload of the binary - operator
+/// \brief Перегрузка бинарного оператора -
 ///
-/// This operator returns the component-wise subtraction of two colors.
-/// Components below 0 are clamped to 0.
+/// Возвращает покомпонентную разность двух цветов.
+/// Компоненты ниже 0 ограничиваются до 0.
 ///
-/// \param left  Left operand
-/// \param right Right operand
+/// \param left  Левый операнд
+/// \param right Правый операнд
 ///
-/// \return Result of \a left - \a right
+/// \return Результат \a left - \a right
 ///
 ////////////////////////////////////////////////////////////
 SFML_GRAPHICS_API Color operator -(const Color& left, const Color& right);
 
 ////////////////////////////////////////////////////////////
 /// \relates Color
-/// \brief Overload of the binary * operator
+/// \brief Перегрузка бинарного оператора *
 ///
-/// This operator returns the component-wise multiplication
-/// (also called "modulation") of two colors.
-/// Components are then divided by 255 so that the result is
-/// still in the range [0, 255].
+/// Возвращает покомпонентное произведение (модуляцию) двух цветов.
+/// Компоненты затем делятся на 255, чтобы результат оставался
+/// в диапазоне [0, 255].
 ///
-/// \param left  Left operand
-/// \param right Right operand
+/// \param left  Левый операнд
+/// \param right Правый операнд
 ///
-/// \return Result of \a left * \a right
+/// \return Результат \a left * \a right
 ///
 ////////////////////////////////////////////////////////////
 SFML_GRAPHICS_API Color operator *(const Color& left, const Color& right);
 
 ////////////////////////////////////////////////////////////
 /// \relates Color
-/// \brief Overload of the binary += operator
+/// \brief Перегрузка оператора +=
 ///
-/// This operator computes the component-wise sum of two colors,
-/// and assigns the result to the left operand.
-/// Components that exceed 255 are clamped to 255.
+/// Вычисляет покомпонентную сумму двух цветов и присваивает
+/// результат левому операнду.
+/// Компоненты, превышающие 255, ограничиваются до 255.
 ///
-/// \param left  Left operand
-/// \param right Right operand
+/// \param left  Левый операнд
+/// \param right Правый операнд
 ///
-/// \return Reference to \a left
+/// \return Ссылка на \a left
 ///
 ////////////////////////////////////////////////////////////
 SFML_GRAPHICS_API Color& operator +=(Color& left, const Color& right);
 
 ////////////////////////////////////////////////////////////
 /// \relates Color
-/// \brief Overload of the binary -= operator
+/// \brief Перегрузка оператора -=
 ///
-/// This operator computes the component-wise subtraction of two colors,
-/// and assigns the result to the left operand.
-/// Components below 0 are clamped to 0.
+/// Вычисляет покомпонентную разность двух цветов и присваивает
+/// результат левому операнду.
+/// Компоненты ниже 0 ограничиваются до 0.
 ///
-/// \param left  Left operand
-/// \param right Right operand
+/// \param left  Левый операнд
+/// \param right Правый операнд
 ///
-/// \return Reference to \a left
+/// \return Ссылка на \a left
 ///
 ////////////////////////////////////////////////////////////
 SFML_GRAPHICS_API Color& operator -=(Color& left, const Color& right);
 
 ////////////////////////////////////////////////////////////
 /// \relates Color
-/// \brief Overload of the binary *= operator
+/// \brief Перегрузка оператора *=
 ///
-/// This operator returns the component-wise multiplication
-/// (also called "modulation") of two colors, and assigns
-/// the result to the left operand.
-/// Components are then divided by 255 so that the result is
-/// still in the range [0, 255].
+/// Вычисляет покомпонентное произведение (модуляцию) двух цветов
+/// и присваивает результат левому операнду.
+/// Компоненты затем делятся на 255, чтобы результат оставался
+/// в диапазоне [0, 255].
 ///
-/// \param left  Left operand
-/// \param right Right operand
+/// \param left  Левый операнд
+/// \param right Правый операнд
 ///
-/// \return Reference to \a left
+/// \return Ссылка на \a left
 ///
 ////////////////////////////////////////////////////////////
 SFML_GRAPHICS_API Color& operator *=(Color& left, const Color& right);
 
 } // namespace sf
 
-
 #endif // SFML_COLOR_HPP
-
 
 ////////////////////////////////////////////////////////////
 /// \class sf::Color
 /// \ingroup graphics
 ///
-/// sf::Color is a simple color class composed of 4 components:
-/// \li Red
-/// \li Green
-/// \li Blue
-/// \li Alpha (opacity)
+/// sf::Color - простой класс для работы с цветами, состоящий из 4 компонент:
+/// \li Красная (Red)
+/// \li Зеленая (Green)
+/// \li Синяя (Blue)
+/// \li Альфа-канал (прозрачность)
 ///
-/// Each component is a public member, an unsigned integer in
-/// the range [0, 255]. Thus, colors can be constructed and
-/// manipulated very easily:
+/// Каждая компонента - это публичное поле, беззнаковое целое
+/// в диапазоне [0, 255]. Это позволяет легко создавать и изменять цвета:
 ///
 /// \code
-/// sf::Color color(255, 0, 0); // red
-/// color.r = 0;                // make it black
-/// color.b = 128;              // make it dark blue
+/// sf::Color color(255, 0, 0); // красный
+/// color.r = 0;                // делаем черным
+/// color.b = 128;              // делаем темно-синим
 /// \endcode
 ///
-/// The fourth component of colors, named "alpha", represents
-/// the opacity of the color. A color with an alpha value of
-/// 255 will be fully opaque, while an alpha value of 0 will
-/// make a color fully transparent, whatever the value of the
-/// other components is.
+/// Четвертая компонента, "альфа", определяет прозрачность цвета.
+/// Цвет с альфа-значением 255 будет полностью непрозрачным,
+/// а значение 0 сделает цвет полностью прозрачным, независимо
+/// от значений других компонент.
 ///
-/// The most common colors are already defined as static variables:
+/// Наиболее распространенные цвета уже определены как статические переменные:
 /// \code
 /// sf::Color black       = sf::Color::Black;
 /// sf::Color white       = sf::Color::White;
@@ -269,7 +260,7 @@ SFML_GRAPHICS_API Color& operator *=(Color& left, const Color& right);
 /// sf::Color transparent = sf::Color::Transparent;
 /// \endcode
 ///
-/// Colors can also be added and modulated (multiplied) using the
-/// overloaded operators + and *.
+/// Цвета также можно складывать и модулировать (умножать)
+/// с помощью перегруженных операторов + и *.
 ///
 ////////////////////////////////////////////////////////////
