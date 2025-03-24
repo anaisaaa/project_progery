@@ -3,22 +3,20 @@
 // SFML - Simple and Fast Multimedia Library
 // Copyright (C) 2007-2018 Laurent Gomila (laurent@sfml-dev.org)
 //
-// This software is provided 'as-is', without any express or implied warranty.
-// In no event will the authors be held liable for any damages arising from the use of this software.
+// Данное программное обеспечение предоставляется "как есть", без каких-либо гарантий.
+// Авторы не несут ответственности за любые убытки, вызванные использованием этого ПО.
 //
-// Permission is granted to anyone to use this software for any purpose,
-// including commercial applications, and to alter it and redistribute it freely,
-// subject to the following restrictions:
+// Разрешается использовать это ПО для любых целей, включая коммерческие приложения,
+// а также модифицировать и свободно распространять при соблюдении следующих условий:
 //
-// 1. The origin of this software must not be misrepresented;
-//    you must not claim that you wrote the original software.
-//    If you use this software in a product, an acknowledgment
-//    in the product documentation would be appreciated but is not required.
+// 1. Нельзя выдавать себя за автора оригинального ПО;
+//    запрещено утверждать, что вы написали оригинальное ПО.
+//    При использовании в продукте, указание авторства приветствуется, но не обязательно.
 //
-// 2. Altered source versions must be plainly marked as such,
-//    and must not be misrepresented as being the original software.
+// 2. Измененные версии должны быть явно обозначены как таковые
+//    и не должны выдаваться за оригинальное ПО.
 //
-// 3. This notice may not be removed or altered from any source distribution.
+// 3. Данное уведомление не может быть удалено или изменено.
 //
 ////////////////////////////////////////////////////////////
 
@@ -26,7 +24,7 @@
 #define SFML_FONT_HPP
 
 ////////////////////////////////////////////////////////////
-// Headers
+// Заголовочные файлы
 ////////////////////////////////////////////////////////////
 #include <SFML/Graphics/Export.hpp>
 #include <SFML/Graphics/Glyph.hpp>
@@ -38,13 +36,12 @@
 #include <string>
 #include <vector>
 
-
 namespace sf
 {
 class InputStream;
 
 ////////////////////////////////////////////////////////////
-/// \brief Class for loading and manipulating character fonts
+/// \brief Класс для загрузки и работы со шрифтами
 ///
 ////////////////////////////////////////////////////////////
 class SFML_GRAPHICS_API Font
@@ -52,56 +49,55 @@ class SFML_GRAPHICS_API Font
 public:
 
     ////////////////////////////////////////////////////////////
-    /// \brief Holds various information about a font
+    /// \brief Содержит различную информацию о шрифте
     ///
     ////////////////////////////////////////////////////////////
     struct Info
     {
-        std::string family; ///< The font family
+        std::string family; ///< Название семейства шрифтов
     };
 
 public:
 
     ////////////////////////////////////////////////////////////
-    /// \brief Default constructor
+    /// \brief Конструктор по умолчанию
     ///
-    /// This constructor defines an empty font
+    /// Создает пустой шрифт
     ///
     ////////////////////////////////////////////////////////////
     Font();
 
     ////////////////////////////////////////////////////////////
-    /// \brief Copy constructor
+    /// \brief Конструктор копирования
     ///
-    /// \param copy Instance to copy
+    /// \param copy Копируемый экземпляр
     ///
     ////////////////////////////////////////////////////////////
     Font(const Font& copy);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Destructor
+    /// \brief Деструктор
     ///
-    /// Cleans up all the internal resources used by the font
+    /// Освобождает все внутренние ресурсы, используемые шрифтом
     ///
     ////////////////////////////////////////////////////////////
     ~Font();
 
     ////////////////////////////////////////////////////////////
-    /// \brief Load the font from a file
+    /// \brief Загрузка шрифта из файла
     ///
-    /// The supported font formats are: TrueType, Type 1, CFF,
-    /// OpenType, SFNT, X11 PCF, Windows FNT, BDF, PFR and Type 42.
-    /// Note that this function knows nothing about the standard
-    /// fonts installed on the user's system, thus you can't
-    /// load them directly.
+    /// Поддерживаемые форматы шрифтов: TrueType, Type 1, CFF,
+    /// OpenType, SFNT, X11 PCF, Windows FNT, BDF, PFR и Type 42.
+    /// Обратите внимание, что эта функция не знает о стандартных
+    /// шрифтах, установленных в системе, и не может загружать их напрямую.
     ///
-    /// \warning SFML cannot preload all the font data in this
-    /// function, so the file has to remain accessible until
-    /// the sf::Font object loads a new font or is destroyed.
+    /// \warning SFML не может предзагрузить все данные шрифта в этой
+    /// функции, поэтому файл должен оставаться доступным до тех пор,
+    /// пока объект sf::Font не загрузит новый шрифт или не будет уничтожен.
     ///
-    /// \param filename Path of the font file to load
+    /// \param filename Путь к файлу шрифта
     ///
-    /// \return True if loading succeeded, false if it failed
+    /// \return True, если загрузка прошла успешно, false в случае ошибки
     ///
     /// \see loadFromMemory, loadFromStream
     ///
@@ -109,20 +105,20 @@ public:
     bool loadFromFile(const std::string& filename);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Load the font from a file in memory
+    /// \brief Загрузка шрифта из памяти
     ///
-    /// The supported font formats are: TrueType, Type 1, CFF,
-    /// OpenType, SFNT, X11 PCF, Windows FNT, BDF, PFR and Type 42.
+    /// Поддерживаемые форматы шрифтов: TrueType, Type 1, CFF,
+    /// OpenType, SFNT, X11 PCF, Windows FNT, BDF, PFR и Type 42.
     ///
-    /// \warning SFML cannot preload all the font data in this
-    /// function, so the buffer pointed by \a data has to remain
-    /// valid until the sf::Font object loads a new font or
-    /// is destroyed.
+    /// \warning SFML не может предзагрузить все данные шрифта в этой
+    /// функции, поэтому буфер, на который указывает \a data, должен
+    /// оставаться валидным до тех пор, пока объект sf::Font не загрузит
+    /// новый шрифт или не будет уничтожен.
     ///
-    /// \param data        Pointer to the file data in memory
-    /// \param sizeInBytes Size of the data to load, in bytes
+    /// \param data        Указатель на данные шрифта в памяти
+    /// \param sizeInBytes Размер данных для загрузки в байтах
     ///
-    /// \return True if loading succeeded, false if it failed
+    /// \return True, если загрузка прошла успешно, false в случае ошибки
     ///
     /// \see loadFromFile, loadFromStream
     ///
@@ -130,21 +126,18 @@ public:
     bool loadFromMemory(const void* data, std::size_t sizeInBytes);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Load the font from a custom stream
+    /// \brief Загрузка шрифта из пользовательского потока
     ///
-    /// The supported font formats are: TrueType, Type 1, CFF,
-    /// OpenType, SFNT, X11 PCF, Windows FNT, BDF, PFR and Type 42.
-    /// Warning: SFML cannot preload all the font data in this
-    /// function, so the contents of \a stream have to remain
-    /// valid as long as the font is used.
+    /// Поддерживаемые форматы шрифтов: TrueType, Type 1, CFF,
+    /// OpenType, SFNT, X11 PCF, Windows FNT, BDF, PFR и Type 42.
     ///
-    /// \warning SFML cannot preload all the font data in this
-    /// function, so the stream has to remain accessible until
-    /// the sf::Font object loads a new font or is destroyed.
+    /// \warning SFML не может предзагрузить все данные шрифта в этой
+    /// функции, поэтому поток должен оставаться доступным до тех пор,
+    /// пока объект sf::Font не загрузит новый шрифт или не будет уничтожен.
     ///
-    /// \param stream Source stream to read from
+    /// \param stream Исходный поток для чтения
     ///
-    /// \return True if loading succeeded, false if it failed
+    /// \return True, если загрузка прошла успешно, false в случае ошибки
     ///
     /// \see loadFromFile, loadFromMemory
     ///
@@ -152,73 +145,73 @@ public:
     bool loadFromStream(InputStream& stream);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Get the font information
+    /// \brief Получение информации о шрифте
     ///
-    /// \return A structure that holds the font information
+    /// \return Структура с информацией о шрифте
     ///
     ////////////////////////////////////////////////////////////
     const Info& getInfo() const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Retrieve a glyph of the font
+    /// \brief Получение глифа шрифта
     ///
-    /// If the font is a bitmap font, not all character sizes
-    /// might be available. If the glyph is not available at the
-    /// requested size, an empty glyph is returned.
+    /// Если шрифт является растровым, не все размеры символов
+    /// могут быть доступны. Если глиф недоступен для запрошенного
+    /// размера, возвращается пустой глиф.
     ///
-    /// Be aware that using a negative value for the outline
-    /// thickness will cause distorted rendering.
+    /// Использование отрицательного значения толщины контура
+    /// может привести к искаженному отображению.
     ///
-    /// \param codePoint        Unicode code point of the character to get
-    /// \param characterSize    Reference character size
-    /// \param bold             Retrieve the bold version or the regular one?
-    /// \param outlineThickness Thickness of outline (when != 0 the glyph will not be filled)
+    /// \param codePoint        Кодовая точка Unicode символа
+    /// \param characterSize    Размер символа
+    /// \param bold             Получить жирную версию или обычную?
+    /// \param outlineThickness Толщина контура (если не 0, глиф не будет заполнен)
     ///
-    /// \return The glyph corresponding to \a codePoint and \a characterSize
+    /// \return Глиф, соответствующий \a codePoint и \a characterSize
     ///
     ////////////////////////////////////////////////////////////
     const Glyph& getGlyph(Uint32 codePoint, unsigned int characterSize, bool bold, float outlineThickness = 0) const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Get the kerning offset of two glyphs
+    /// \brief Получение кернинга для пары глифов
     ///
-    /// The kerning is an extra offset (negative) to apply between two
-    /// glyphs when rendering them, to make the pair look more "natural".
-    /// For example, the pair "AV" have a special kerning to make them
-    /// closer than other characters. Most of the glyphs pairs have a
-    /// kerning offset of zero, though.
+    /// Кернинг - это дополнительное смещение (отрицательное),
+    /// применяемое между двумя глифами при отрисовке, чтобы
+    /// сделать пару более "естественной". Например, пара "AV"
+    /// имеет специальный кернинг, чтобы расположить символы ближе.
+    /// Большинство пар глифов имеют кернинг, равный нулю.
     ///
-    /// \param first         Unicode code point of the first character
-    /// \param second        Unicode code point of the second character
-    /// \param characterSize Reference character size
+    /// \param first         Кодовая точка Unicode первого символа
+    /// \param second        Кодовая точка Unicode второго символа
+    /// \param characterSize Размер символа
     ///
-    /// \return Kerning value for \a first and \a second, in pixels
+    /// \return Значение кернинга для \a first и \a second в пикселях
     ///
     ////////////////////////////////////////////////////////////
     float getKerning(Uint32 first, Uint32 second, unsigned int characterSize) const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Get the line spacing
+    /// \brief Получение межстрочного интервала
     ///
-    /// Line spacing is the vertical offset to apply between two
-    /// consecutive lines of text.
+    /// Межстрочный интервал - это вертикальное смещение между
+    /// двумя последовательными строками текста.
     ///
-    /// \param characterSize Reference character size
+    /// \param characterSize Размер символа
     ///
-    /// \return Line spacing, in pixels
+    /// \return Межстрочный интервал в пикселях
     ///
     ////////////////////////////////////////////////////////////
     float getLineSpacing(unsigned int characterSize) const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Get the position of the underline
+    /// \brief Получение позиции подчеркивания
     ///
-    /// Underline position is the vertical offset to apply between the
-    /// baseline and the underline.
+    /// Позиция подчеркивания - это вертикальное смещение между
+    /// базовой линией и подчеркиванием.
     ///
-    /// \param characterSize Reference character size
+    /// \param characterSize Размер символа
     ///
-    /// \return Underline position, in pixels
+    /// \return Позиция подчеркивания в пикселях
     ///
     /// \see getUnderlineThickness
     ///
@@ -226,13 +219,13 @@ public:
     float getUnderlinePosition(unsigned int characterSize) const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Get the thickness of the underline
+    /// \brief Получение толщины подчеркивания
     ///
-    /// Underline thickness is the vertical size of the underline.
+    /// Толщина подчеркивания - это вертикальный размер подчеркивания.
     ///
-    /// \param characterSize Reference character size
+    /// \param characterSize Размер символа
     ///
-    /// \return Underline thickness, in pixels
+    /// \return Толщина подчеркивания в пикселях
     ///
     /// \see getUnderlinePosition
     ///
@@ -240,25 +233,25 @@ public:
     float getUnderlineThickness(unsigned int characterSize) const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Retrieve the texture containing the loaded glyphs of a certain size
+    /// \brief Получение текстуры с загруженными глифами определенного размера
     ///
-    /// The contents of the returned texture changes as more glyphs
-    /// are requested, thus it is not very relevant. It is mainly
-    /// used internally by sf::Text.
+    /// Содержимое возвращаемой текстуры изменяется по мере запроса
+    /// новых глифов, поэтому оно не очень релевантно. В основном
+    /// используется внутри sf::Text.
     ///
-    /// \param characterSize Reference character size
+    /// \param characterSize Размер символа
     ///
-    /// \return Texture containing the glyphs of the requested size
+    /// \return Текстура, содержащая глифы запрошенного размера
     ///
     ////////////////////////////////////////////////////////////
     const Texture& getTexture(unsigned int characterSize) const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Overload of assignment operator
+    /// \brief Перегрузка оператора присваивания
     ///
-    /// \param right Instance to assign
+    /// \param right Присваиваемый экземпляр
     ///
-    /// \return Reference to self
+    /// \return Ссылка на себя
     ///
     ////////////////////////////////////////////////////////////
     Font& operator =(const Font& right);
@@ -266,174 +259,156 @@ public:
 private:
 
     ////////////////////////////////////////////////////////////
-    /// \brief Structure defining a row of glyphs
+    /// \brief Структура, определяющая строку глифов
     ///
     ////////////////////////////////////////////////////////////
     struct Row
     {
         Row(unsigned int rowTop, unsigned int rowHeight) : width(0), top(rowTop), height(rowHeight) {}
 
-        unsigned int width;  ///< Current width of the row
-        unsigned int top;    ///< Y position of the row into the texture
-        unsigned int height; ///< Height of the row
+        unsigned int width;  ///< Текущая ширина строки
+        unsigned int top;    ///< Y-позиция строки в текстуре
+        unsigned int height; ///< Высота строки
     };
 
     ////////////////////////////////////////////////////////////
-    // Types
+    // Типы
     ////////////////////////////////////////////////////////////
-    typedef std::map<Uint64, Glyph> GlyphTable; ///< Table mapping a codepoint to its glyph
+    typedef std::map<Uint64, Glyph> GlyphTable; ///< Таблица соответствия кодовых точек глифам
 
     ////////////////////////////////////////////////////////////
-    /// \brief Structure defining a page of glyphs
+    /// \brief Структура, определяющая страницу глифов
     ///
     ////////////////////////////////////////////////////////////
     struct Page
     {
         Page();
 
-        GlyphTable       glyphs;  ///< Table mapping code points to their corresponding glyph
-        Texture          texture; ///< Texture containing the pixels of the glyphs
-        unsigned int     nextRow; ///< Y position of the next new row in the texture
-        std::vector<Row> rows;    ///< List containing the position of all the existing rows
+        GlyphTable       glyphs;  ///< Таблица соответствия кодовых точек глифам
+        Texture          texture; ///< Текстура, содержащая пиксели глифов
+        unsigned int     nextRow; ///< Y-позиция следующей новой строки в текстуре
+        std::vector<Row> rows;    ///< Список позиций всех существующих строк
     };
 
     ////////////////////////////////////////////////////////////
-    /// \brief Free all the internal resources
+    /// \brief Освобождение всех внутренних ресурсов
     ///
     ////////////////////////////////////////////////////////////
     void cleanup();
 
     ////////////////////////////////////////////////////////////
-    /// \brief Load a new glyph and store it in the cache
+    /// \brief Загрузка нового глифа и сохранение его в кэше
     ///
-    /// \param codePoint        Unicode code point of the character to load
-    /// \param characterSize    Reference character size
-    /// \param bold             Retrieve the bold version or the regular one?
-    /// \param outlineThickness Thickness of outline (when != 0 the glyph will not be filled)
+    /// \param codePoint        Кодовая точка Unicode символа
+    /// \param characterSize    Размер символа
+    /// \param bold             Загрузить жирную версию или обычную?
+    /// \param outlineThickness Толщина контура (если не 0, глиф не будет заполнен)
     ///
-    /// \return The glyph corresponding to \a codePoint and \a characterSize
+    /// \return Глиф, соответствующий \a codePoint и \a characterSize
     ///
     ////////////////////////////////////////////////////////////
     Glyph loadGlyph(Uint32 codePoint, unsigned int characterSize, bool bold, float outlineThickness) const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Find a suitable rectangle within the texture for a glyph
+    /// \brief Поиск подходящего прямоугольника в текстуре для глифа
     ///
-    /// \param page   Page of glyphs to search in
-    /// \param width  Width of the rectangle
-    /// \param height Height of the rectangle
+    /// \param page   Страница глифов для поиска
+    /// \param width  Ширина прямоугольника
+    /// \param height Высота прямоугольника
     ///
-    /// \return Found rectangle within the texture
+    /// \return Найденный прямоугольник в текстуре
     ///
     ////////////////////////////////////////////////////////////
     IntRect findGlyphRect(Page& page, unsigned int width, unsigned int height) const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Make sure that the given size is the current one
+    /// \brief Убедиться, что заданный размер является текущим
     ///
-    /// \param characterSize Reference character size
+    /// \param characterSize Размер символа
     ///
-    /// \return True on success, false if any error happened
+    /// \return True в случае успеха, false при ошибке
     ///
     ////////////////////////////////////////////////////////////
     bool setCurrentSize(unsigned int characterSize) const;
 
     ////////////////////////////////////////////////////////////
-    // Types
+    // Типы
     ////////////////////////////////////////////////////////////
-    typedef std::map<unsigned int, Page> PageTable; ///< Table mapping a character size to its page (texture)
+    typedef std::map<unsigned int, Page> PageTable; ///< Таблица соответствия размеров символов страницам (текстурам)
 
     ////////////////////////////////////////////////////////////
-    // Member data
+    // Данные-члены
     ////////////////////////////////////////////////////////////
-    void*                      m_library;     ///< Pointer to the internal library interface (it is typeless to avoid exposing implementation details)
-    void*                      m_face;        ///< Pointer to the internal font face (it is typeless to avoid exposing implementation details)
-    void*                      m_streamRec;   ///< Pointer to the stream rec instance (it is typeless to avoid exposing implementation details)
-    void*                      m_stroker;     ///< Pointer to the stroker (it is typeless to avoid exposing implementation details)
-    int*                       m_refCount;    ///< Reference counter used by implicit sharing
-    Info                       m_info;        ///< Information about the font
-    mutable PageTable          m_pages;       ///< Table containing the glyphs pages by character size
-    mutable std::vector<Uint8> m_pixelBuffer; ///< Pixel buffer holding a glyph's pixels before being written to the texture
+    void*                      m_library;     ///< Указатель на внутренний интерфейс библиотеки (без типа для скрытия деталей реализации)
+    void*                      m_face;        ///< Указатель на внутренний объект шрифта (без типа для скрытия деталей реализации)
+    void*                      m_streamRec;   ///< Указатель на запись потока (без типа для скрытия деталей реализации)
+    void*                      m_stroker;     ///< Указатель на обводчик (без типа для скрытия деталей реализации)
+    int*                       m_refCount;    ///< Счетчик ссылок, используемый для неявного разделения
+    Info                       m_info;        ///< Информация о шрифте
+    mutable PageTable          m_pages;       ///< Таблица страниц глифов по размерам символов
+    mutable std::vector<Uint8> m_pixelBuffer; ///< Буфер пикселей для временного хранения глифов перед записью в текстуру
     #ifdef SFML_SYSTEM_ANDROID
-    void*                      m_stream; ///< Asset file streamer (if loaded from file)
+    void*                      m_stream; ///< Поток файла ресурсов (если загружен из файла)
     #endif
 };
 
 } // namespace sf
 
-
 #endif // SFML_FONT_HPP
-
 
 ////////////////////////////////////////////////////////////
 /// \class sf::Font
 /// \ingroup graphics
 ///
-/// Fonts can be loaded from a file, from memory or from a custom
-/// stream, and supports the most common types of fonts. See
-/// the loadFromFile function for the complete list of supported formats.
+/// Шрифты могут быть загружены из файла, из памяти или из
+/// пользовательского потока и поддерживают наиболее распространенные
+/// форматы шрифтов. Полный список поддерживаемых форматов см.
+/// в функции loadFromFile.
 ///
-/// Once it is loaded, a sf::Font instance provides three
-/// types of information about the font:
-/// \li Global metrics, such as the line spacing
-/// \li Per-glyph metrics, such as bounding box or kerning
-/// \li Pixel representation of glyphs
+/// После загрузки экземпляр sf::Font предоставляет три типа
+/// информации о шрифте:
+/// \li Глобальные метрики, такие как межстрочный интервал
+/// \li Метрики отдельных глифов, такие как ограничивающий прямоугольник или кернинг
+/// \li Пиксельное представление глифов
 ///
-/// Fonts alone are not very useful: they hold the font data
-/// but cannot make anything useful of it. To do so you need to
-/// use the sf::Text class, which is able to properly output text
-/// with several options such as character size, style, color,
-/// position, rotation, etc.
-/// This separation allows more flexibility and better performances:
-/// indeed a sf::Font is a heavy resource, and any operation on it
-/// is slow (often too slow for real-time applications). On the other
-/// side, a sf::Text is a lightweight object which can combine the
-/// glyphs data and metrics of a sf::Font to display any text on a
-/// render target.
-/// Note that it is also possible to bind several sf::Text instances
-/// to the same sf::Font.
+/// Сами по себе шрифты не очень полезны: они содержат данные
+/// шрифта, но не могут ничего с ними сделать. Для этого вам
+/// нужно использовать класс sf::Text, который может правильно
+/// выводить текст с различными параметрами, такими как размер
+/// символов, стиль, цвет, позиция, поворот и т.д.
+/// Такое разделение обеспечивает большую гибкость и лучшую
+/// производительность: sf::Font является ресурсоемким объектом,
+/// и любая операция с ним выполняется медленно (часто слишком
+/// медленно для приложений реального времени). С другой стороны,
+/// sf::Text - это легковесный объект, который может комбинировать
+/// данные глифов и метрики sf::Font для отображения любого текста
+/// на цели рендеринга.
+/// Обратите внимание, что можно привязать несколько экземпляров
+/// sf::Text к одному sf::Font.
 ///
-/// It is important to note that the sf::Text instance doesn't
-/// copy the font that it uses, it only keeps a reference to it.
-/// Thus, a sf::Font must not be destructed while it is
-/// used by a sf::Text (i.e. never write a function that
-/// uses a local sf::Font instance for creating a text).
+/// Важно отметить, что экземпляр sf::Text не копирует используемый
+/// шрифт, а только сохраняет ссылку на него. Таким образом,
+/// sf::Font не должен уничтожаться, пока он используется
+/// sf::Text (т.е. никогда не пишите функцию, которая использует
+/// локальный экземпляр sf::Font для создания текста).
 ///
-/// Usage example:
+/// Пример использования:
 /// \code
-/// // Declare a new font
+/// // Объявление нового шрифта
 /// sf::Font font;
 ///
-/// // Load it from a file
+/// // Загрузка из файла
 /// if (!font.loadFromFile("arial.ttf"))
 /// {
-///     // error...
+///     // ошибка...
 /// }
 ///
-/// // Create a text which uses our font
+/// // Создание текста с использованием нашего шрифта
 /// sf::Text text1;
 /// text1.setFont(font);
 /// text1.setCharacterSize(30);
 /// text1.setStyle(sf::Text::Regular);
 ///
-/// // Create another text using the same font, but with different parameters
+/// // Создание другого текста с тем же шрифтом, но другими параметрами
 /// sf::Text text2;
-/// text2.setFont(font);
-/// text2.setCharacterSize(50);
-/// text2.setStyle(sf::Text::Italic);
-/// \endcode
-///
-/// Apart from loading font files, and passing them to instances
-/// of sf::Text, you should normally not have to deal directly
-/// with this class. However, it may be useful to access the
-/// font metrics or rasterized glyphs for advanced usage.
-///
-/// Note that if the font is a bitmap font, it is not scalable,
-/// thus not all requested sizes will be available to use. This
-/// needs to be taken into consideration when using sf::Text.
-/// If you need to display text of a certain size, make sure the
-/// corresponding bitmap font that supports that size is used.
-///
-/// \see sf::Text
-///
-////////////////////////////////////////////////////////////
+/// text2.setFont
