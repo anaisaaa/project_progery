@@ -3,22 +3,20 @@
 // SFML - Simple and Fast Multimedia Library
 // Copyright (C) 2007-2018 Laurent Gomila (laurent@sfml-dev.org)
 //
-// This software is provided 'as-is', without any express or implied warranty.
-// In no event will the authors be held liable for any damages arising from the use of this software.
+// Данное программное обеспечение предоставляется "как есть", без каких-либо гарантий.
+// Авторы не несут ответственности за любые убытки, вызванные использованием этого ПО.
 //
-// Permission is granted to anyone to use this software for any purpose,
-// including commercial applications, and to alter it and redistribute it freely,
-// subject to the following restrictions:
+// Разрешается использовать это ПО для любых целей, включая коммерческие приложения,
+// а также модифицировать и свободно распространять при соблюдении следующих условий:
 //
-// 1. The origin of this software must not be misrepresented;
-//    you must not claim that you wrote the original software.
-//    If you use this software in a product, an acknowledgment
-//    in the product documentation would be appreciated but is not required.
+// 1. Нельзя выдавать себя за автора оригинального ПО;
+//    запрещено утверждать, что вы написали оригинальное ПО.
+//    При использовании в продукте, указание авторства приветствуется, но не обязательно.
 //
-// 2. Altered source versions must be plainly marked as such,
-//    and must not be misrepresented as being the original software.
+// 2. Измененные версии должны быть явно обозначены как таковые
+//    и не должны выдаваться за оригинальное ПО.
 //
-// 3. This notice may not be removed or altered from any source distribution.
+// 3. Данное уведомление не может быть удалено или изменено.
 //
 ////////////////////////////////////////////////////////////
 
@@ -26,16 +24,15 @@
 #define SFML_CIRCLESHAPE_HPP
 
 ////////////////////////////////////////////////////////////
-// Headers
+// Заголовочные файлы
 ////////////////////////////////////////////////////////////
 #include <SFML/Graphics/Export.hpp>
 #include <SFML/Graphics/Shape.hpp>
 
-
 namespace sf
 {
 ////////////////////////////////////////////////////////////
-/// \brief Specialized shape representing a circle
+/// \brief Специализированная фигура, представляющая окружность
 ///
 ////////////////////////////////////////////////////////////
 class SFML_GRAPHICS_API CircleShape : public Shape
@@ -43,18 +40,18 @@ class SFML_GRAPHICS_API CircleShape : public Shape
 public:
 
     ////////////////////////////////////////////////////////////
-    /// \brief Default constructor
+    /// \brief Конструктор по умолчанию
     ///
-    /// \param radius     Radius of the circle
-    /// \param pointCount Number of points composing the circle
+    /// \param radius     Радиус окружности
+    /// \param pointCount Количество точек, составляющих окружность
     ///
     ////////////////////////////////////////////////////////////
     explicit CircleShape(float radius = 0, std::size_t pointCount = 30);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Set the radius of the circle
+    /// \brief Установка радиуса окружности
     ///
-    /// \param radius New radius of the circle
+    /// \param radius Новый радиус окружности
     ///
     /// \see getRadius
     ///
@@ -62,9 +59,9 @@ public:
     void setRadius(float radius);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Get the radius of the circle
+    /// \brief Получение радиуса окружности
     ///
-    /// \return Radius of the circle
+    /// \return Радиус окружности
     ///
     /// \see setRadius
     ///
@@ -72,9 +69,9 @@ public:
     float getRadius() const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Set the number of points of the circle
+    /// \brief Установка количества точек окружности
     ///
-    /// \param count New number of points of the circle
+    /// \param count Новое количество точек окружности
     ///
     /// \see getPointCount
     ///
@@ -82,9 +79,9 @@ public:
     void setPointCount(std::size_t count);
 
     ////////////////////////////////////////////////////////////
-    /// \brief Get the number of points of the circle
+    /// \brief Получение количества точек окружности
     ///
-    /// \return Number of points of the circle
+    /// \return Количество точек окружности
     ///
     /// \see setPointCount
     ///
@@ -92,16 +89,16 @@ public:
     virtual std::size_t getPointCount() const;
 
     ////////////////////////////////////////////////////////////
-    /// \brief Get a point of the circle
+    /// \brief Получение точки окружности
     ///
-    /// The returned point is in local coordinates, that is,
-    /// the shape's transforms (position, rotation, scale) are
-    /// not taken into account.
-    /// The result is undefined if \a index is out of the valid range.
+    /// Возвращаемая точка находится в локальных координатах,
+    /// то есть трансформации фигуры (позиция, вращение, масштаб)
+    /// не учитываются.
+    /// Результат не определен, если \a index выходит за допустимые пределы.
     ///
-    /// \param index Index of the point to get, in range [0 .. getPointCount() - 1]
+    /// \param index Индекс точки (в диапазоне [0 .. getPointCount() - 1])
     ///
-    /// \return index-th point of the shape
+    /// \return Точка с указанным индексом
     ///
     ////////////////////////////////////////////////////////////
     virtual Vector2f getPoint(std::size_t index) const;
@@ -109,27 +106,25 @@ public:
 private:
 
     ////////////////////////////////////////////////////////////
-    // Member data
+    // Данные-члены
     ////////////////////////////////////////////////////////////
-    float       m_radius;     ///< Radius of the circle
-    std::size_t m_pointCount; ///< Number of points composing the circle
+    float       m_radius;     ///< Радиус окружности
+    std::size_t m_pointCount; ///< Количество точек, составляющих окружность
 };
 
 } // namespace sf
 
-
 #endif // SFML_CIRCLESHAPE_HPP
-
 
 ////////////////////////////////////////////////////////////
 /// \class sf::CircleShape
 /// \ingroup graphics
 ///
-/// This class inherits all the functions of sf::Transformable
-/// (position, rotation, scale, bounds, ...) as well as the
-/// functions of sf::Shape (outline, color, texture, ...).
+/// Этот класс наследует все функции sf::Transformable
+/// (позиция, вращение, масштаб, границы и т.д.), а также
+/// функции sf::Shape (контур, цвет, текстура и т.д.).
 ///
-/// Usage example:
+/// Пример использования:
 /// \code
 /// sf::CircleShape circle;
 /// circle.setRadius(150);
@@ -140,14 +135,14 @@ private:
 /// window.draw(circle);
 /// \endcode
 ///
-/// Since the graphics card can't draw perfect circles, we have to
-/// fake them with multiple triangles connected to each other. The
-/// "points count" property of sf::CircleShape defines how many of these
-/// triangles to use, and therefore defines the quality of the circle.
+/// Поскольку видеокарта не может рисовать идеальные окружности,
+/// мы имитируем их с помощью множества соединенных треугольников.
+/// Свойство "количество точек" определяет, сколько таких треугольников
+/// использовать, и тем самым влияет на качество отображения окружности.
 ///
-/// The number of points can also be used for another purpose; with
-/// small numbers you can create any regular polygon shape:
-/// equilateral triangle, square, pentagon, hexagon, ...
+/// Количество точек также можно использовать для других целей:
+/// с малым количеством точек можно создавать правильные многоугольники:
+/// равносторонний треугольник, квадрат, пятиугольник, шестиугольник и т.д.
 ///
 /// \see sf::Shape, sf::RectangleShape, sf::ConvexShape
 ///
