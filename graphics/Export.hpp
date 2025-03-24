@@ -3,22 +3,20 @@
 // SFML - Simple and Fast Multimedia Library
 // Copyright (C) 2007-2018 Laurent Gomila (laurent@sfml-dev.org)
 //
-// This software is provided 'as-is', without any express or implied warranty.
-// In no event will the authors be held liable for any damages arising from the use of this software.
+// Данное программное обеспечение предоставляется "как есть", без каких-либо гарантий.
+// Авторы не несут ответственности за любые убытки, вызванные использованием этого ПО.
 //
-// Permission is granted to anyone to use this software for any purpose,
-// including commercial applications, and to alter it and redistribute it freely,
-// subject to the following restrictions:
+// Разрешается использовать это ПО для любых целей, включая коммерческие приложения,
+// а также модифицировать и свободно распространять при соблюдении следующих условий:
 //
-// 1. The origin of this software must not be misrepresented;
-//    you must not claim that you wrote the original software.
-//    If you use this software in a product, an acknowledgment
-//    in the product documentation would be appreciated but is not required.
+// 1. Нельзя выдавать себя за автора оригинального ПО;
+//    запрещено утверждать, что вы написали оригинальное ПО.
+//    При использовании в продукте, указание авторства приветствуется, но не обязательно.
 //
-// 2. Altered source versions must be plainly marked as such,
-//    and must not be misrepresented as being the original software.
+// 2. Измененные версии должны быть явно обозначены как таковые
+//    и не должны выдаваться за оригинальное ПО.
 //
-// 3. This notice may not be removed or altered from any source distribution.
+// 3. Данное уведомление не может быть удалено или изменено.
 //
 ////////////////////////////////////////////////////////////
 
@@ -26,13 +24,13 @@
 #define SFML_GRAPHICS_EXPORT_HPP
 
 ////////////////////////////////////////////////////////////
-// Headers
+// Заголовочные файлы
 ////////////////////////////////////////////////////////////
 #include <SFML/Config.hpp>
 
 
 ////////////////////////////////////////////////////////////
-// Define portable import / export macros
+// Определение переносимых макросов для импорта/экспорта
 ////////////////////////////////////////////////////////////
 #if defined(SFML_GRAPHICS_EXPORTS)
 
