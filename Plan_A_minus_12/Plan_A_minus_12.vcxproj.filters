@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{58b1ea83-3d3d-404f-8012-4b1dfb7e537c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="FrameRate.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="MapLoader.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Math.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Plan_A_minus_12.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Skeleton.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Amaterasu.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Rasengun.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss_1.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss_2.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Fireball.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="GoldenAtc.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Rasenshuriken.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Bullet.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="FrameRate.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Header.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="MapData.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="MapLoader.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Math.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Skeleton.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Amaterasu.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Rasengun.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss_1.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss_2.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Fireball.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Rasenshuriken.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="GoldenAtc.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md">
+      <Filter>src</Filter>
+    </None>
+  </ItemGroup>
+</Project>
